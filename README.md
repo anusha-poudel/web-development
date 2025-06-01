@@ -15,5 +15,5 @@ This repository will track my daily progress as I learn and build projects in HT
 
  📅 Day 1:
 I created a basic bio webpage using only HTML.
-It includes my name, a short intro, and some personal details like hobbies and interests. I practiced using tags like <html>, <head>, <body>, <h1>, <p>, <ul>, and <img>.
+It includes my name, a short intro, and some personal details like hobbies and interests. 
 
