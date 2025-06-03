@@ -5,17 +5,18 @@ Welcome to my 60-day Web Development journey! 🚀
 This repository will track my daily progress as I learn and build projects in HTML, CSS, Git, UI Design, and more.
 
 📁 What’s in this repo:
- Daily tasks and projects
+-Daily tasks and projects
+-Notes and what I learned
+-Practice with HTML, CSS, Git, and UI design
+-List of learning resources and references
 
- Notes and what I learned
-
- Practice with HTML, CSS, Git, and UI design
-
- Screenshots of my work
+🎓Course I'm Following
+Codecademy HTML Course — interactive lessons with projects and a certificate upon completion.
 
  📅 Day 1:
 I created a basic bio webpage using only HTML.
 It includes my name, a short intro, and some personal details like hobbies and interests. 
+
 
 📅 Day 2 – Deeper into HTML
 - Learned how to:
@@ -24,5 +25,16 @@ It includes my name, a short intro, and some personal details like hobbies and i
   - Use `<em>`, `<strong>`, and formatting tags
   - Write cleaner HTML with whitespace and indentation
 
-Course I'm Following:
-I'm currently learning HTML through Codecademy which involves interactive sessions and ceritificate of completion.
+
+📅 Day 3 – Halfway Through HTML
+Learned how to:
+-Create and structure HTML tables
+-Build form elements including dropdown lists
+-Apply proper nesting and label inputs for clarity
+-Structure mini projects using only HTML
+
+📌 Projects Built:
+Fashion Blog
+Wine Ceremony (includes table structure)
+Screenshots shared on Twitter/X
+
