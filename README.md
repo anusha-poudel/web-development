@@ -38,3 +38,14 @@ Fashion Blog
 Wine Ceremony (includes table structure)
 Screenshots shared on Twitter/X
 
+
+📅 Day 4: HTML Course Completion 
+  ✅ Finished the full HTML course.
+  Covered:
+  - Remaining parts of HTML forms
+  - Semantic HTML
+  - How to use multimedia tags to enhance content
+
+📌 Project Built:
+A mini dog facts page using semantic structure and multimedia.
+Screenshots shared on Twitter/X
