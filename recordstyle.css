@@ -1,0 +1,41 @@
+header{
+    height: 80px;
+    width:100%;
+    background-color: cornflowerblue;
+    text-align: center;
+}
+th,td{
+    border: 1px solid;
+    padding: 10px;
+    
+}
+table{
+    width:80%;
+    border: 1px solid;
+    padding: 10px;
+    border-collapse: collapse;
+}
+.head{
+    background-color: gainsboro;
+}
+.r1{
+    background-color: cornflowerblue;
+}
+.r2{
+    background-color: azure;
+}
+.r3{
+    background-color: cornflowerblue;
+}
+.r4{
+    background-color: azure;
+}
+.r5{
+    background-color: cornflowerblue;
+}
+.r6{
+    background-color: azure;
+}
+footer{
+    background-color: gainsboro;
+}
