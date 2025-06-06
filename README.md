@@ -49,3 +49,27 @@ Screenshots shared on Twitter/X
 📌 Project Built:
 A mini dog facts page using semantic structure and multimedia.
 Screenshots shared on Twitter/X
+
+
+📅 Day 5: HTML with CSS basics
+   Things Learned:
+   - CSS properties:height, width, background-color, and float
+   - Importance of layout structure and spacing
+   - How to align sections side by side using float and width
+
+📌 Project Built:
+A practice project of cafe using HTML semantic tags and basic CSS properties.
+Screenshots shared on Twitter/X
+
+
+📅 Day 6: 
+   Learned how to:
+   - Build and style a student record table using HTML and external CSS
+   - Apply table styling: borders, width, padding, and zero cell gaps
+   - Complete 10% of Codecademy's CSS course (setup & syntax)
+   - Use GitHub branches to organize project work
+
+📌 Project Built:
+Student Record Table (HTML + CSS linked file) invloves alternate coloring of rows 
+Screenshots shared on Twitter/X
+
