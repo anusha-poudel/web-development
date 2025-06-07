@@ -73,3 +73,10 @@ Screenshots shared on Twitter/X
 Student Record Table (HTML + CSS linked file) invloves alternate coloring of rows 
 Screenshots shared on Twitter/X
 
+
+📅 Day 7:
+   - Studied CSS syntax: how rules are written with selectors and declaration blocks.
+   - Explored different types of selectors like element, class, and ID selectors.
+   - Understood how selector specificity determines which style applies when there are conflicts.
+   - Practiced writing CSS rules to style elements efficiently and cleanly.
+     
