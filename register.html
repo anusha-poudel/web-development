@@ -1,0 +1,107 @@
+<!DOCTYPE html>                                       
+<html>
+    <head>
+        <title>Register</title>
+        <style>
+        body {
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif, sans-serif;
+        background-color: lightgrey;
+        }
+        #nav {
+      display: flex;
+      align-content: center;
+      gap: 40px;
+      background-color: teal;
+      padding: 20px;
+    }
+    #nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      margin-left: 15px;
+    }
+    #nav a:hover {
+      text-decoration: underline;
+    }
+    form {
+    background-color: white;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    }
+    form div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    }
+    label {
+    width: 120px;
+    font-weight: bold;
+    }
+    input[type="text"],
+    input[type="password"],
+   select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+   }
+  input[type="submit"] {
+  background-color: teal;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  width: 100%;
+  margin-top: 10px;
+  }
+
+  input[type="submit"]:hover {
+  background-color: darkcyan;
+  }
+        </style>
+    </head>
+    <body>
+        <div id="nav">
+            <a href="">Home</a>
+            <a href="">About Us</a>
+            <a href="">Services</a>
+        </div>
+        <form>
+            <div>
+            <label>First Name</label>
+            <input type="text" name="fname" id="fname" placeholder="Your first name"/>
+            </div>
+            <div>
+            <label>Last Name</label>
+            <input type="text" name="lname" id="lname" placeholder="Your last name"/>
+            </div>
+            <div>
+            <label>Email</label>
+            <input type="text" name="mail" id="mail" placeholder="Your email"/>
+            </div>
+            <div>
+            <label>Password</label>
+            <input type="password" name="pw" id="pw" placeholder="Your password"/>
+            </div>
+            <div>
+            <select id="province" name="province">
+                <option value="Province 1">Province 1</option>
+                <option value="Province 2">Province 2</option>
+                <option value="Province 3" selected>Province 3</option>
+                <option value="Province 4">Province 4</option>
+                <option value="Province 5">Province 5</option>
+                <option value="Province 6">Province 6</option>
+                <option value="Province 7">Province 7</option>
+            </select>
+            </div>
+            <div>
+            <input type="submit" name="Register" id="reg"/>
+            <div>
+        </form>
+    </body>
+</html>
