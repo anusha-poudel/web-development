@@ -80,3 +80,51 @@ Screenshots shared on Twitter/X
    - Understood how selector specificity determines which style applies when there are conflicts.
    - Practiced writing CSS rules to style elements efficiently and cleanly.
      
+
+📅 Day 8:
+    - Explored visual styling fundamentals in CSS
+    -Styled a login page with colors, fonts, and spacing
+    -Practiced padding, margin, and font styling
+
+ 📌 Project Built:
+ A simple login page with username, password and submit button
+
+
+📅 Day 9:
+   -How the CSS box model works: padding, borders, and margins
+   -Structuring forms with labels and inputs properly
+
+📌 Project Built:
+Built a signup page with basic styling, involved creating account and for already existing account, login page
+
+
+📅 Day 10:
+   - Dived into CSS essentials on Codecademy like color gradients, box model, border radius and text decorations
+   - learned about radio buttons, dropdown list and implemented it
+
+📌 Project Built:
+Built a register page with a navigation bar and a state dropdown with basic styling
+
+
+📅 Day 11:
+    - Dived deep into box model in CSS
+    - Learned about changing the box model + box model in DevTools
+    - Covered essential parts like margins, padding
+
+
+📅 Day 12:
+    -learned about positions, layout:
+    -position (relative, absolute, fixed, sticky), z-index, display, float, clear
+    -practiced with a survey project on Codecademy
+
+
+ 📅 Day 13:
+     -Wrapped up the final lessons on colors & typography today 
+     -100% completed CSS on Codecademy- beginner level
+     -Practiced with colors, fonts and sizes
+
+
+📅 Day 14:
+    
+    
+    
