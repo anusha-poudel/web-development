@@ -113,18 +113,33 @@ Built a register page with a navigation bar and a state dropdown with basic styl
 
 
 📅 Day 12:
-    -learned about positions, layout:
-    -position (relative, absolute, fixed, sticky), z-index, display, float, clear
-    -practiced with a survey project on Codecademy
+    - learned about positions, layout:
+    - position (relative, absolute, fixed, sticky), z-index, display, float, clear
+    - practiced with a survey project on Codecademy
 
 
  📅 Day 13:
-     -Wrapped up the final lessons on colors & typography today 
-     -100% completed CSS on Codecademy- beginner level
-     -Practiced with colors, fonts and sizes
+     - Wrapped up the final lessons on colors & typography today 
+     - 100% completed CSS on Codecademy- beginner level
+     - Practiced with colors, fonts and sizes
 
 
 📅 Day 14:
-    
-    
-    
+   - Completed HTML and CSS journey.
+
+📌 Project Built:
+A fantasy-themed website inspired by the K-drama Witch’s Diner, built using HTML and CSS.
+The site features:
+Gradient text, styled navigation, and responsive layout
+A magical menu where dishes grant wishes - but cost emotions, memories, or secrets
+Semantic HTML structure and custom CSS effects to match the mystical vibe
+No JavaScript used.
+
+
+📅 Day 15:
+    - What I Learned:
+    console.log() and how to output data
+    Writing single-line and multi-line comments
+    JavaScript data types, operators
+    Objects, properties and access, and methods
+
