@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form fillup</title>
+  <style>
+    #nameError, #phoneError, #emailError, #pwError {
+      color: red;
+    }
+    label, input[type="text"],
+    input[type="password"]{
+        margin: 10px auto;
+    }
+  </style>
+  
+  <script>
+    function validate() {
+      var name = document.reg.name.value;
+      var phone = document.reg.phone.value;
+      var email = document.reg.email.value;
+      var password = document.reg.password.value;
+
+      // Clear previous error messages
+      document.getElementById("nameError").innerHTML = "";
+      document.getElementById("phoneError").innerHTML = "";
+      document.getElementById("emailError").innerHTML = "";
+      document.getElementById("pwError").innerHTML = "";
+
+      var isValid = true;
+
+      if(name == "") {
+        document.getElementById("nameError").innerHTML = "*Please enter your name";
+        isValid = false;
+      }
+
+      if(phone == "" || isNaN(phone)) {
+        document.getElementById("phoneError").innerHTML = "*Please enter valid number";
+        isValid = false;
+      }
+
+      if(email == "") {
+        document.getElementById("emailError").innerHTML = "*Please enter your email";
+        isValid = false;
+      }
+
+      if(password == "") {
+        document.getElementById("pwError").innerHTML = "*Please enter a password";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function clearErrors() {
+      document.getElementById("nameError").innerHTML = "";
+      document.getElementById("phoneError").innerHTML = "";
+      document.getElementById("emailError").innerHTML = "";
+      document.getElementById("pwError").innerHTML = "";
+    }
+  </script>
+</head>
+<body>
+  <form id="reg" name="reg" method="post" action="#" onsubmit="return validate();">
+    <div>
+      <label>Name:</label>
+      <input type="text" name="name"/>
+      <span id="nameError"></span>
+    </div>
+
+    <div>
+      <label>Phone:</label>
+      <input type="text" name="phone"/>
+      <span id="phoneError"></span>
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="text" name="email"/>
+      <span id="emailError"></span>
+    </div>
+
+    <div>
+      <label>Password:</label>
+      <input type="password" name="password"/>
+      <span id="pwError"></span>
+    </div>
+
+    <div>
+      <input type="submit" value="Submit"/>
+      <input type="reset" value="Reset" onclick="clearErrors()"/>
+    </div>
+  </form>
+</body>
+</html>
