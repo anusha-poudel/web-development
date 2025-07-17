@@ -11,19 +11,14 @@
         margin: 10px auto;
     }
   </style>
-  
   <script>
     function validate() {
       var name = document.reg.name.value;
       var phone = document.reg.phone.value;
       var email = document.reg.email.value;
       var password = document.reg.password.value;
-
       // Clear previous error messages
-      document.getElementById("nameError").innerHTML = "";
-      document.getElementById("phoneError").innerHTML = "";
-      document.getElementById("emailError").innerHTML = "";
-      document.getElementById("pwError").innerHTML = "";
+      clearErrors();
 
       var isValid = true;
 
@@ -31,22 +26,18 @@
         document.getElementById("nameError").innerHTML = "*Please enter your name";
         isValid = false;
       }
-
       if(phone == "" || isNaN(phone)) {
         document.getElementById("phoneError").innerHTML = "*Please enter valid number";
         isValid = false;
       }
-
       if(email == "") {
         document.getElementById("emailError").innerHTML = "*Please enter your email";
         isValid = false;
       }
-
       if(password == "") {
         document.getElementById("pwError").innerHTML = "*Please enter a password";
         isValid = false;
       }
-
       return isValid;
     }
 
