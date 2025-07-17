@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #d7eef1;
+    }
+    .search input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .search button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .weather, .error {
+      margin-top: 30px;
+      font-size: 18px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Weather App</h1>
+
+  <div class="search">
+    <input type="text" placeholder="Enter city name" />
+    <button>Check Weather</button>
+  </div>
+
+  <div class="error">City not found. Please try again.</div>
+
+  <div class="weather">
+    <h2 class="city"></h2>
+    <p class="temp"></p>
+    <p class="condition"></p>
+    <p class="humidity"></p>
+    <p class="wind"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
