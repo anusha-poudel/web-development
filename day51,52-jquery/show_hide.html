@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jquery demo</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        #box {
+            height: 200px;
+            width: 200px;
+            background-color: lightpink;
+            text-align: center;
+        }
+        #show_hide_btn{
+            margin: 10px 20px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#show_hide_btn").click(function(){
+                $("#box").toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="box">Here!</div>
+    <button id="show_hide_btn">Show/Hide</button>
+</body>
+</html>
