@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Password Strength Checker</title>
+<style>
+  input {
+    width: 300px;
+    padding: 8px;
+    font-size: 16px;
+  }
+  #strength-text {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .weak {
+    color: red;
+  }
+  .medium {
+    color: orange;
+  }
+  .strong {
+    color: green;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <label for="password">Enter Password:</label>
+  <input type="password" id="password" placeholder="Type your password" />
+  <div id="strength-text" class="strength"></div>
+</div>
+
+<script>
+  const passwordInput = document.getElementById('password');
+  const strengthText = document.getElementById('strength-text');
+
+  passwordInput.addEventListener('input', () => {
+    const pwd = passwordInput.value;
+    const strength = checkStrength(pwd);
+    
+    strengthText.textContent = strength.text;
+    strengthText.className = 'strength ' + strength.className;
+  });
+
+  function checkStrength(password) {
+    let score = 0;
+
+    if (password.length >= 8) score++;
+    if (/[A-Z]/.test(password)) score++;
+    if (/[a-z]/.test(password)) score++;
+    if (/\d/.test(password)) score++;
+    if (/[\W_]/.test(password)) score++; 
+
+    if (password.length === 0) {
+      return { text: 'Enter a password', className: '' };
+    } else if (score <= 2) {
+      return { text: 'Weak', className: 'weak' };
+    } else if (score === 3 || score === 4) {
+      return { text: 'Medium', className: 'medium' };
+    } else if (score === 5) {
+      return { text: 'Strong', className: 'strong' };
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
