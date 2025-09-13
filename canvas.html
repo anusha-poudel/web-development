@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas Example</title>
+</head>
+<body>
+  <h2>Canvas Rectangle and Circle</h2>
+  
+  <canvas id="myCanvas" width="400" height="300" style="border:1px solid black;"></canvas>
+  
+  <script>
+    // Get the canvas and drawing context
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    // Draw a rectangle (x, y, width, height)
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(50, 50, 150, 100);
+
+    // Draw a circle
+    ctx.beginPath();
+    ctx.arc(300, 150, 50, 0, 2 * Math.PI); // x, y, radius, startAngle, endAngle
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.stroke(); // outline
+  </script>
+</body>
+</html>
