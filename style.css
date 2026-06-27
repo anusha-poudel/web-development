@@ -1,0 +1,575 @@
+/* ══════════════════════════════════════════
+   NutriTrack – style.css
+   Simple, clean, beginner-friendly CSS.
+   Sections:
+     1. Variables & Reset
+     2. Hero / Home Page
+     3. App Section
+     4. Summary Cards
+     5. Goal Row & Progress Bar
+     6. Nudge (tip) Box
+     7. Add Food Form
+     8. Quick Food Buttons
+     9. Food Log List
+    10. Chart
+    11. Footer
+    12. Animations
+══════════════════════════════════════════ */
+
+
+/* ── 1. Variables & Reset ─────────────────
+   CSS variables make it easy to change
+   colors in one place. */
+:root {
+  --green:        #3aaa6e;   /* main accent */
+  --green-light:  #e8f7f0;   /* soft green background */
+  --green-dark:   #2a7d52;   /* hover state */
+  --orange:       #f9813a;   /* warning / special accent */
+  --orange-light: #fff3eb;
+  --cream:        #fdfcf8;   /* page background */
+  --white:        #ffffff;
+  --gray-light:   #f0eeea;
+  --gray-mid:     #c8c5be;
+  --gray-text:    #888480;
+  --dark:         #1e1c1a;   /* main text */
+  --radius-sm:    8px;
+  --radius-md:    14px;
+  --radius-lg:    20px;
+  --shadow:       0 4px 20px rgba(0,0,0,0.07);
+}
+
+/* Basic reset – removes default margin/padding */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scroll to #app */
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* ── 2. Hero / Home Page ──────────────────
+   Full-screen landing section with motto */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #e8f7f0 0%, #fdfcf8 60%, #fff3eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 1.5rem;
+}
+
+/* Inner content box – centered */
+.hero-inner {
+  max-width: 560px;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* sits above the blobs */
+}
+
+/* Brand logo */
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+
+/* Big display headline */
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 8vw, 4.5rem); /* responsive size */
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--dark);
+  margin-bottom: 0.6rem;
+}
+
+/* Italic accent word in headline */
+.hero-title em {
+  font-style: italic;
+  color: var(--green);
+}
+
+/* Motto line */
+.hero-motto {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+/* Short description */
+.hero-desc {
+  font-size: 1rem;
+  color: var(--gray-text);
+  max-width: 420px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* Call-to-action button */
+.cta-btn {
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.85rem 2rem;
+  border-radius: 50px; /* fully rounded pill */
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.cta-btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px); /* subtle lift on hover */
+}
+
+/* Floating food emoji blobs (decorative) */
+.hero-blobs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* don't block clicks */
+  z-index: 1;
+}
+
+.blob {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.18;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Position each blob differently */
+.b1 { top: 12%;  left: 8%;   animation-delay: 0s;    font-size: 2rem; }
+.b2 { top: 20%;  right: 10%; animation-delay: 1s;    font-size: 3rem; }
+.b3 { bottom: 20%; left: 12%; animation-delay: 2s;   font-size: 2.5rem; }
+.b4 { bottom: 15%; right: 8%; animation-delay: 0.5s; font-size: 2rem; }
+.b5 { top: 50%;  left: 5%;   animation-delay: 1.5s; font-size: 1.8rem; }
+
+
+/* ── 3. App Section ───────────────────────*/
+.app-wrap {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.app-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+/* Section label above each group */
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-text);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  margin-top: 1.8rem;
+}
+
+
+/* ── 4. Summary Cards ─────────────────────*/
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 10px;
+  margin-bottom: 1.4rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-md);
+  padding: 14px 10px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.card-label {
+  font-size: 0.72rem;
+  color: var(--gray-text);
+  margin-bottom: 6px;
+}
+
+.card-value {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+
+/* ── 5. Goal Row & Progress Bar ──────────*/
+.goal-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--gray-text);
+  flex-wrap: wrap;
+}
+
+.goal-label {
+  min-width: 120px;
+  font-weight: 500;
+}
+
+/* Calorie goal number input */
+.goal-row input[type="number"] {
+  width: 80px;
+  flex: none;
+  padding: 6px 10px;
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  background: var(--white);
+  color: var(--dark);
+}
+
+/* Progress bar track */
+.progress {
+  flex: 1;
+  min-width: 80px;
+  height: 8px;
+  background: var(--gray-light);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+/* Progress bar fill – color changes via JS class */
+.progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--green);
+  transition: width 0.4s ease, background 0.3s;
+}
+
+.progress-fill.warn { background: var(--orange); }   /* near goal */
+.progress-fill.over { background: #e24b4a; }          /* exceeded */
+
+.goal-pct {
+  min-width: 38px;
+  text-align: right;
+  font-weight: 500;
+}
+
+
+/* ── 6. Nudge (tip) Box ──────────────────
+   One friendly tip shown at a time */
+.nudge-box {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  margin-bottom: 1.6rem;
+  box-shadow: var(--shadow);
+  /* Left colored stripe set inline by JS */
+  border-left-width: 4px;
+}
+
+.nudge-main {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.nudge-sub {
+  font-size: 0.85rem;
+  color: var(--gray-text);
+  line-height: 1.65;
+}
+
+/* Dot indicators (one dot per tip) */
+.nudge-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gray-mid);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Active dot colors */
+.dot.active { background: var(--green); }
+.dot.warn   { background: var(--orange); }
+.dot.danger { background: #e24b4a; }
+
+/* Nav row inside nudge box */
+.nudge-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.nudge-count {
+  font-size: 0.75rem;
+  color: var(--gray-text);
+}
+
+/* Small arrow navigation buttons */
+.nav-btn {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nav-btn:hover { background: var(--gray-light); }
+
+
+/* ── 7. Add Food Form ────────────────────*/
+.add-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* All inputs share this base style */
+input[type="text"],
+input[type="number"] {
+  padding: 9px 12px;
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]   { flex: 2; min-width: 130px; }
+input[type="number"] { flex: 1; min-width: 70px; }
+
+/* Highlight on focus */
+input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(58,170,110,0.15);
+}
+
+/* Green "Add" button */
+.btn-add {
+  padding: 9px 18px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-add:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.btn-add:active { transform: scale(0.97); }
+
+
+/* ── 8. Quick Food Buttons ───────────────*/
+.quick-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Each quick food button */
+.btn-quick {
+  padding: 8px 14px;
+  background: var(--green-light);
+  color: var(--green-dark);
+  border: 1px solid #c2e8d5;
+  border-radius: 50px; /* pill shape */
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-quick:hover {
+  background: #d0f0e2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(58,170,110,0.18);
+}
+
+/* Special orange pill for Daal Bhaat */
+.btn-special {
+  background: var(--orange-light);
+  color: #c05c18;
+  border-color: #f9c9a5;
+}
+
+.btn-special:hover {
+  background: #fde5d0;
+  box-shadow: 0 4px 12px rgba(249,129,58,0.18);
+}
+
+
+/* ── 9. Food Log List ────────────────────*/
+.food-list {
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+/* Each logged food item */
+.food-item {
+  display: flex;
+  align-items: center;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--gray-light);
+  font-size: 0.88rem;
+  gap: 10px;
+  transition: background 0.15s;
+}
+
+.food-item:last-child { border-bottom: none; }
+.food-item:hover      { background: var(--cream); }
+
+/* Food name – takes available space */
+.food-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Small macro numbers */
+.food-macros {
+  display: flex;
+  gap: 10px;
+  color: var(--gray-text);
+  font-size: 0.78rem;
+}
+
+/* Delete (×) button */
+.del {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--gray-mid);
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.del:hover { color: #e24b4a; }
+
+/* Empty state message */
+.empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--gray-text);
+  font-size: 0.9rem;
+}
+
+/* Clear all button */
+.btn-clear {
+  background: none;
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius-sm);
+  color: var(--gray-text);
+  font-size: 0.82rem;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-clear:hover {
+  background: #fdecea;
+  color: #c0392b;
+  border-color: #f0b8b8;
+}
+
+
+/* ── 10. Nutrition Chart ─────────────────*/
+.chart-hint {
+  font-size: 0.85rem;
+  color: var(--gray-text);
+  margin-bottom: 1rem;
+}
+
+/* Chart container – controls the canvas size */
+.chart-wrap {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  max-width: 420px; /* keeps chart compact */
+}
+
+
+/* ── 11. Footer ──────────────────────────*/
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--gray-text);
+  border-top: 1px solid var(--gray-light);
+}
+
+
+/* ── 12. Animations ──────────────────────*/
+
+/* Floating animation for hero blobs */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-18px) rotate(8deg); }
+}
+
+/* Responsive: stack cards on small screens */
+@media (max-width: 480px) {
+  .summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+}

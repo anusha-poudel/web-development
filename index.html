@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NutriTrack – Eat Smart, Live Strong</title>
+
+  <!-- Google Fonts: Fraunces (display heading) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Chart.js – lightweight chart library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1 – HERO / HOME PAGE
+  ══════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-inner">
+
+      <!-- Brand name -->
+      <div class="logo">🥗 NutriTrack</div>
+
+      <!-- Big display headline -->
+      <h1 class="hero-title">
+        Eat Smart,<br>
+        <em>Live Strong</em>
+      </h1>
+
+      <!-- Motto -->
+      <p class="hero-motto">Track Your Nutrition Every Day</p>
+
+      <!-- Short app description -->
+      <p class="hero-desc">
+        A simple, friendly tool to log your daily meals, watch your
+        calories, and get gentle reminders when your body needs more
+        fuel. No sign-up. No fuss. Just you and your food.
+      </p>
+
+      <!-- Button that scrolls down to the tracker -->
+      <a href="#app" class="cta-btn">Start Tracking ↓</a>
+    </div>
+
+    <!-- Decorative floating food emojis (CSS-animated) -->
+    <div class="hero-blobs" aria-hidden="true">
+      <span class="blob b1">🍎</span>
+      <span class="blob b2">🥚</span>
+      <span class="blob b3">🍚</span>
+      <span class="blob b4">🥗</span>
+      <span class="blob b5">🍌</span>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 2 – MAIN TRACKER APP
+  ══════════════════════════════════════ -->
+  <main id="app" class="app-wrap">
+
+    <h2 class="app-title">Today's Nutrition Log</h2>
+
+    <!-- ── 4 Summary Cards (filled by JS) ── -->
+    <div class="summary">
+      <div class="card">
+        <div class="card-label">🔥 Calories</div>
+        <div class="card-value" id="tot-cal">0</div>
+      </div>
+      <div class="card">
+        <div class="card-label">💪 Protein (g)</div>
+        <div class="card-value" id="tot-pro">0</div>
+      </div>
+      <div class="card">
+        <div class="card-label">🌾 Carbs (g)</div>
+        <div class="card-value" id="tot-car">0</div>
+      </div>
+      <div class="card">
+        <div class="card-label">🥑 Fat (g)</div>
+        <div class="card-value" id="tot-fat">0</div>
+      </div>
+    </div>
+
+    <!-- ── Calorie Goal + Progress Bar ── -->
+    <div class="goal-row">
+      <span class="goal-label">Daily calorie goal</span>
+      <input type="number" id="goal-input" value="2000" min="500" max="5000" oninput="updateGoal()" />
+      <div class="progress">
+        <div class="progress-fill" id="cal-bar" style="width:0%"></div>
+      </div>
+      <span id="goal-pct" class="goal-pct">0%</span>
+    </div>
+
+    <!-- ── Smart Nudge tip (injected by JS) ── -->
+    <div id="nudge-wrap"></div>
+
+    <!-- ── Add Food Form ── -->
+    <div class="section-title">Add a food</div>
+    <div class="add-row">
+      <input type="text"   id="f-name" placeholder="Food name" />
+      <input type="number" id="f-cal"  placeholder="Cal"    min="0" />
+      <input type="number" id="f-pro"  placeholder="Pro g"  min="0" />
+      <input type="number" id="f-car"  placeholder="Carb g" min="0" />
+      <input type="number" id="f-fat"  placeholder="Fat g"  min="0" />
+      <button class="btn-add" onclick="addFood()">+ Add</button>
+    </div>
+
+    <!-- ── Quick Food Buttons ── -->
+    <!-- Each calls quick(name, calories, protein, carbs, fat) -->
+    <div class="section-title">Quick foods</div>
+    <div class="quick-row">
+      <button class="btn-quick" onclick="quick('Banana',89,1,23,0)">🍌 Banana</button>
+      <button class="btn-quick" onclick="quick('Egg',78,6,1,5)">🥚 Egg</button>
+      <button class="btn-quick" onclick="quick('Chicken breast',165,31,0,4)">🍗 Chicken</button>
+      <button class="btn-quick" onclick="quick('Rice (1 cup)',206,4,45,0)">🍚 Rice</button>
+      <button class="btn-quick" onclick="quick('Apple',95,0,25,0)">🍎 Apple</button>
+      <button class="btn-quick" onclick="quick('Milk (1 cup)',149,8,12,8)">🥛 Milk</button>
+      <!-- Daal Bhaat: approx nutrition for a standard Nepali plate -->
+      <button class="btn-quick btn-special" onclick="quick('Daal Bhaat',450,18,72,6)">🍛 Daal Bhaat</button>
+    </div>
+
+    <!-- ── Food Log List (filled by JS) ── -->
+    <div class="section-title">Today's log</div>
+    <div class="food-list" id="food-list">
+      <div class="empty">No foods added yet. Start by adding a meal above!</div>
+    </div>
+
+    <button class="btn-clear" onclick="clearAll()">🗑 Clear all</button>
+
+    <!-- ── Nutrition Chart ── -->
+    <div class="section-title" style="margin-top:2.5rem;">Nutrition breakdown</div>
+    <p class="chart-hint">Visual snapshot of your macros for today.</p>
+    <div class="chart-wrap">
+      <!-- Chart.js draws inside this canvas -->
+      <canvas id="macroChart"></canvas>
+    </div>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    Made with ❤️ &nbsp;·&nbsp; NutriTrack &nbsp;·&nbsp; Eat Smart, Live Strong
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
